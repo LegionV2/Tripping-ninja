@@ -3,13 +3,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.newdawn.slick.AppGameContainer;
-import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.state.StateBasedGame;
 
-public class SimpleSlickGame extends BasicGame
+import States.*; // Imports everything from States class
+
+public class SimpleSlickGame extends StateBasedGame
 {
 	float x = 200.0f;
 	float y = 200.0f;
@@ -18,42 +18,6 @@ public class SimpleSlickGame extends BasicGame
 	public SimpleSlickGame(String gamename)
 	{
 		super(gamename);
-	}
-
-	@Override
-	public void init(GameContainer gc) throws SlickException {
-		
-	}
-
-	@Override
-	public void update(GameContainer gc, int i) throws SlickException {
-		Input input = gc.getInput();
-		
-		//move right
-		if (input.isKeyDown(Input.KEY_RIGHT)){ 
-			x += speed*i;
-		}
-		
-		//move left
-		if (input.isKeyDown(Input.KEY_LEFT)){
-			x -= speed*i;
-		}
-		
-		//move up
-		if (input.isKeyDown(Input.KEY_UP)){
-			y -= speed*i;
-		}
-		
-		//move down
-		if (input.isKeyDown(Input.KEY_DOWN)){
-			y += speed*i;
-		}
-	}
-
-	@Override
-	public void render(GameContainer gc, Graphics g) throws SlickException
-	{
-		g.drawString("Hello World!", x, y);
 	}
 
 	public static void main(String[] args)
@@ -69,5 +33,15 @@ public class SimpleSlickGame extends BasicGame
 		{
 			Logger.getLogger(SimpleSlickGame.class.getName()).log(Level.SEVERE, null, ex);
 		}
+		
+		
+	}
+
+	@Override
+	public void initStatesList(GameContainer gc) throws SlickException {
+		this.addState(new MenuState());
+		this.addState(new GameState());
+		this.addState(new EndState());
+		
 	}
 }
