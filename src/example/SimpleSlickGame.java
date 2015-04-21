@@ -6,6 +6,7 @@ import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 
@@ -14,6 +15,10 @@ public class SimpleSlickGame extends BasicGame
 	float x = 200.0f;
 	float y = 200.0f;
 	float speed = 0.2f;
+	Image image;
+	int edgeX = 640;
+	int edgeY = 480;
+	boolean isGrounded;
 	
 	public SimpleSlickGame(String gamename)
 	{
@@ -22,6 +27,8 @@ public class SimpleSlickGame extends BasicGame
 
 	@Override
 	public void init(GameContainer gc) throws SlickException {
+
+		image = new Image ("spriteL.png");
 		
 	}
 
@@ -30,39 +37,78 @@ public class SimpleSlickGame extends BasicGame
 		Input input = gc.getInput();
 		
 		//move right
-		if (input.isKeyDown(Input.KEY_RIGHT)){ 
-			x += speed*i;
+		if (input.isKeyDown(Input.KEY_RIGHT)){
+			image = new Image ("spriteR.png");
+			if (x>edgeX+32){
+				x = -31;
+			}
+			else{
+				x += speed*i;
+			}
 		}
 		
 		//move left
 		if (input.isKeyDown(Input.KEY_LEFT)){
-			x -= speed*i;
+			image = new Image ("spriteL.png");
+			if (x<-32){
+				x = edgeX+31;
+			}
+			else{
+				x -= speed*i;
+			}
 		}
+		
 		
 		//move up
-		if (input.isKeyDown(Input.KEY_UP)){
-			y -= speed*i;
+		if (input.isKeyPressed(Input.KEY_UP) && isGrounded == true){
+			isGrounded = false;
+			if (y<= 0)
+				y = 0;
+			else{
+				for (int spood = 0; spood < 3; spood++){
+				if (spood == 0){
+					y -= speed*400*i;
+				}
+				if (spood == 1){
+					y -= speed*200*i;
+				}
+				if (spood == 2){
+					y -= speed*100*i;
+				}
+			}				
 		}
+
+	}
 		
 		//move down
-		if (input.isKeyDown(Input.KEY_DOWN)){
-			y += speed*i;
+		//if (input.isKeyDown(Input.KEY_DOWN)){
+			if (y>=edgeY-32){
+				y = edgeY-32;
+				isGrounded = true;
+			}
+			else {
+				y += speed*i;
+			}
 		}
-	}
+	
 
 	@Override
 	public void render(GameContainer gc, Graphics g) throws SlickException
 	{
-		g.drawString("Hello World!", x, y);
+		g.drawImage (image, x, y);
 	}
 
 	public static void main(String[] args)
 	{
+		
+		int edgeX = 640;
+		int edgeY = 480;
 		try
 		{
+			
 			AppGameContainer appgc;
 			appgc = new AppGameContainer(new SimpleSlickGame("Simple Slick Game"));
-			appgc.setDisplayMode(640, 480, false);
+			appgc.setDisplayMode(edgeX, edgeY, false);
 			appgc.start();
 		}
 		catch (SlickException ex)
