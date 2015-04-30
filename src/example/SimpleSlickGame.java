@@ -39,6 +39,9 @@ public class SimpleSlickGame extends StateBasedGame
 
 	@Override
 	public void initStatesList(GameContainer gc) throws SlickException {
+		
+		new Resources();
+		
 		this.addState(new MenuState());
 		this.addState(new GameState());
 		this.addState(new EndState());
