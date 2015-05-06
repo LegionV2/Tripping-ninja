@@ -1,4 +1,5 @@
 package example;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,6 +23,7 @@ public class SimpleSlickGame extends BasicGame
 	int edgeY = 640;
 	boolean isGrounded;
 	
+	private ArrayList<Entity>entities;
 	
 	
 	public SimpleSlickGame(String gamename)
@@ -32,12 +34,19 @@ public class SimpleSlickGame extends BasicGame
 	@Override
 	public void init(GameContainer gc) throws SlickException {
 
+		entities = new ArrayList<Entity>();
+		
+		entities.add(new Hamster());
+		
 		image = new Image ("spriteL.png");
 		
 	}
 
 	@Override
 	public void update(GameContainer gc, int i) throws SlickException {
+		
+		
+		
 		Input input = gc.getInput();
 		
 		//move right
@@ -99,6 +108,12 @@ public class SimpleSlickGame extends BasicGame
 	@Override
 	public void render(GameContainer gc, Graphics g) throws SlickException
 	{
+		int amount = entities.size();
+
+		for (int n = 0; n < amount; n++){
+			entities.get(n).render(gc,g);
+		}
+		
 		g.drawImage (image, x, y);
 	}
 
