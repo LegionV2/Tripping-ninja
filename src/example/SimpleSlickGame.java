@@ -9,16 +9,20 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.state.BasicGameState;
 
 public class SimpleSlickGame extends BasicGame
 {
 	float x = 200.0f;
 	float y = 200.0f;
 	float speed = 0.2f;
+	float gravity;
 	Image image;
-	int edgeX = 640;
-	int edgeY = 480;
+	int edgeX = 720;
+	int edgeY = 640;
 	boolean isGrounded;
+	
+	
 	
 	public SimpleSlickGame(String gamename)
 	{
@@ -58,39 +62,39 @@ public class SimpleSlickGame extends BasicGame
 			}
 		}
 		
+		if (isGrounded == true){
+			gravity = 0.0f;
+		}
 		
 		//move up
-		if (input.isKeyPressed(Input.KEY_UP) && isGrounded == true){
+		if (input.isKeyPressed(Input.KEY_UP) && gravity == 0){
 			isGrounded = false;
-			if (y<= 0)
-				y = 0;
-			else{
-				for (int spood = 0; spood < 3; spood++){
-				if (spood == 0){
-					y -= speed*400*i;
-				}
-				if (spood == 1){
-					y -= speed*200*i;
-				}
-				if (spood == 2){
-					y -= speed*100*i;
-				}
-			}				
-		}
+			gravity = -50.0f;
+			
 
 	}
+		if (isGrounded == false){
+		gravity += 0.1f;
+		y += gravity*i/50;
+		}
 		
 		//move down
-		//if (input.isKeyDown(Input.KEY_DOWN)){
-			if (y>=edgeY-32){
+		if (input.isKeyDown(Input.KEY_DOWN)){
+			y +=1;
+		}
+			
+		
+		if (y>=edgeY-32){
 				y = edgeY-32;
 				isGrounded = true;
 			}
-			else {
-				y += speed*i;
+			
+			if (x<300 && x> 200 && y < edgeY-100 && y> edgeY - 101 && gravity > 0){
+				isGrounded = true;
 			}
-		}
-	
+			
+		//}
+	}
 
 	@Override
 	public void render(GameContainer gc, Graphics g) throws SlickException
@@ -101,8 +105,8 @@ public class SimpleSlickGame extends BasicGame
 	public static void main(String[] args)
 	{
 		
-		int edgeX = 640;
-		int edgeY = 480;
+		int edgeX = 720;
+		int edgeY = 640;
 		try
 		{
 			
