@@ -49,7 +49,7 @@ public class SimpleSlickGame extends StateBasedGame
 		new Resources();
 		
 		try {
-			World.load("res/maps/world.json");
+			World.load("res/maps/world1.json");
 		} catch (Exception e) {
 			System.err.println("Map does not exist!");
 			System.exit(0);

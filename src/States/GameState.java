@@ -24,8 +24,8 @@ public class GameState extends BasicGameState {
 		g.drawString("Hamster goes here!!", 200, 200);
 		Resources.getSpriteImage("tileset",1,2).draw();
 		
-		g.translate(-1500, -1500);
-			World.render(1500, 1500);
+		g.translate(0, -550);
+			World.render(0, 550);
 		g.resetTransform();
 	}
 
