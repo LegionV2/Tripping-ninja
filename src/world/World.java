@@ -96,4 +96,18 @@ public class World {
 		return (inBounds(x,y) && solids[x][y] !=null);
 	}
 	
+	public static boolean hitTest(float x, float y){
+		int xPoint = (int) ((x/Tile.SCALE)%Tile.SMALL_SIZE);
+		int yPoint = (int) ((y/Tile.SCALE)%Tile.SMALL_SIZE);
+		int xTile = (int) (x/Tile.SIZE);
+		int yTile = (int) (y/Tile.SIZE);
+		
+		if (solidTile(xTile,yTile)){
+			
+			return (solids[xTile][yTile].getColor(xPoint, yPoint).a>0);
+		}
+		
+		return false;
+	}
+	
 }

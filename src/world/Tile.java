@@ -8,3 +8,4 @@ public class Tile {
 	public static final float SCALE = (SIZE/SMALL_SIZE);
 	
 }
+

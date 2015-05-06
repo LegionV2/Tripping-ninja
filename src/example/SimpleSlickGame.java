@@ -1,9 +1,11 @@
+
 package example;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -15,6 +17,11 @@ public class SimpleSlickGame extends StateBasedGame
 	float x = 200.0f;
 	float y = 200.0f;
 	float speed = 0.2f;
+	float gravity;
+	Image image;
+	int edgeX = 720;
+	int edgeY = 640;
+	boolean isGrounded;
 	
 	public SimpleSlickGame(String gamename)
 	{
