@@ -9,9 +9,9 @@ public class Hamster extends Entity{
 
 	@Override
 	public void init() {
-		x = 1900;
-		y = 1900;
-		width = 32*2;
+		x = 200;
+		y = 600;
+		width = 31*2;
 		height = 32*2;
 		image = Resources.getImage("SpriteL");
 		

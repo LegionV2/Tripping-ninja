@@ -11,6 +11,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import world.World;
 import example.Entity;
+import example.Hamster;
 import example.Resources;
 
 public class GameState extends BasicGameState {
@@ -24,25 +25,24 @@ public class GameState extends BasicGameState {
 		
 		entities.add(new Hamster());
 		
-		image = new Image ("spriteL.png");
-		
 	}
 
 	@Override
 	public void render(GameContainer gc, StateBasedGame s, Graphics g) throws SlickException {
 		
 		g.drawString("Hamster goes here!!", 200, 200);
-		Resources.getSpriteImage("tileset",1,2).draw();
+		Resources.getImage("spriteL").draw();
 		
 		g.translate(0, -550);
 			World.render(0, 550);
-		g.resetTransform();
 		
 		int amount = entities.size();
 
 		for (int n = 0; n < amount; n++){
 			entities.get(n).render(gc,g);
 		}
+		
+		g.resetTransform();
 	}
 
 	@Override
@@ -53,7 +53,7 @@ public class GameState extends BasicGameState {
 			int amount = entities.size();
 
 			for (int n = 0; n < amount; n++){
-				entities.get(n).update(gc,i);
+				entities.get(n).update(gc,delta);
 			}
 		}
 		
