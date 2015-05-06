@@ -23,7 +23,7 @@ public class Resources {
 		sounds = new HashMap<String, Sound>();
 		
 		try {
-			sprites.put("tileset", loadSprite("resources/tileset.png",Tile.SMALL_SIZE, Tile.SMALL_SIZE));
+			sprites.put("tileset", loadSprite("res/tileset.png",Tile.SMALL_SIZE, Tile.SMALL_SIZE));
 		} catch (SlickException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -27,7 +27,7 @@ public class SimpleSlickGame extends StateBasedGame
 		{
 			AppGameContainer appgc;
 			appgc = new AppGameContainer(new SimpleSlickGame("Simple Slick Game"));
-			appgc.setDisplayMode(640, 480, false);
+			appgc.setDisplayMode(Window.WIDTH, Window.HEIGHT, false);
 			appgc.start();
 		}
 		catch (SlickException ex)
@@ -41,10 +41,15 @@ public class SimpleSlickGame extends StateBasedGame
 	@Override
 	public void initStatesList(GameContainer gc) throws SlickException {
 		
+		gc.setTargetFrameRate(60);
+		gc.setAlwaysRender(true);
+		gc.setMaximumLogicUpdateInterval(60);
+		gc.setVSync(true);
+		
 		new Resources();
 		
 		try {
-			World.load("resources/maps/World.json");
+			World.load("res/maps/world.json");
 		} catch (Exception e) {
 			System.err.println("Map does not exist!");
 			System.exit(0);

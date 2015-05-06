@@ -7,6 +7,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import world.World;
 import example.Resources;
 
 public class GameState extends BasicGameState {
@@ -19,10 +20,13 @@ public class GameState extends BasicGameState {
 
 	@Override
 	public void render(GameContainer gc, StateBasedGame s, Graphics g) throws SlickException {
-		g.drawString("Hamster goes here!!", 200, 200);
 		
+		g.drawString("Hamster goes here!!", 200, 200);
 		Resources.getSpriteImage("tileset",1,2).draw();
 		
+		g.translate(-1500, -1500);
+			World.render(1500, 1500);
+		g.resetTransform();
 	}
 
 	@Override
