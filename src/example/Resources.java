@@ -8,6 +8,8 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.Sound;
 import org.newdawn.slick.SpriteSheet;
 
+import world.Tile;
+
 public class Resources {
 	
 	private static Map<String, Image> images;
@@ -21,36 +23,36 @@ public class Resources {
 		sounds = new HashMap<String, Sound>();
 		
 		try {
-			sprites.put("tileset", loadSprite("resources/tileset.png",16,16));
+			sprites.put("tileset", loadSprite("resources/tileset.png",Tile.SMALL_SIZE, Tile.SMALL_SIZE));
 		} catch (SlickException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
-	private Image loadImage(String path) throws SlickException{ //function for loading images.
+	public static Image loadImage(String path) throws SlickException{ //function for loading images.
 		return new Image(path,false,Image.FILTER_NEAREST);
 	}
 	
-	private SpriteSheet loadSprite(String path, int tw, int th) throws SlickException{
+	public static SpriteSheet loadSprite(String path, int tw, int th) throws SlickException{
 		return new SpriteSheet(loadImage(path),tw,th);
 	}
 	
-	public static Image getImage(String getter){
-		return images.get(getter);
+	
+	public static SpriteSheet getSprite(String getter){
+		return sprites.get(getter);
 	}
 	
 	public static Image getSpriteImage(String getter,int x, int y){
 		return sprites.get(getter).getSubImage(x, y);
 	}
+
 	
-	public static Image getSprite(String getter){
-		return sprites.get(getter);
+	public static Image getImage(String getter){
+		return images.get(getter);
 	}
 	
 	public static Sound getSound(String getter){
 		return sounds.get(getter);
 	}
-	
-
 }
