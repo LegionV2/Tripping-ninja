@@ -5,6 +5,8 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 
+import world.World;
+
 public abstract class Entity extends Box {
 	
 	public Image image;
@@ -25,7 +27,17 @@ public abstract class Entity extends Box {
 	public abstract void update (GameContainer gc, int delta);
 	
 	public boolean testLeft(){
-		//return (World.)
+		return (World.hitTest(x,GetCenterY()));
+	}
+	
+	public boolean testRight(){
+		return (World.hitTest(GetEndX(),GetCenterY()));
+	}
+	public boolean testUp(){
+		return (World.hitTest(y,GetCenterX()));
+	}
+	public boolean testDown(){
+		return (World.hitTest(GetEndY(),GetCenterX()));
 	}
 
 }

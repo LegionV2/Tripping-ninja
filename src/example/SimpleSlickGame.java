@@ -46,6 +46,12 @@ public class SimpleSlickGame extends BasicGame
 	public void update(GameContainer gc, int i) throws SlickException {
 		
 		
+		int amount = entities.size();
+
+		for (int n = 0; n < amount; n++){
+			entities.get(n).update(gc,i);
+		}
+		
 		
 		Input input = gc.getInput();
 		
@@ -71,9 +77,9 @@ public class SimpleSlickGame extends BasicGame
 			}
 		}
 		
-		if (isGrounded == true){
+		/*if (isGrounded == true){
 			gravity = 0.0f;
-		}
+		}*/
 		
 		//move up
 		if (input.isKeyPressed(Input.KEY_UP) && gravity == 0){
@@ -82,10 +88,10 @@ public class SimpleSlickGame extends BasicGame
 			
 
 	}
-		if (isGrounded == false){
+	/*	if (isGrounded == false){
 		gravity += 0.1f;
 		y += gravity*i/50;
-		}
+		}*/
 		
 		//move down
 		if (input.isKeyDown(Input.KEY_DOWN)){
@@ -98,9 +104,9 @@ public class SimpleSlickGame extends BasicGame
 				isGrounded = true;
 			}
 			
-			if (x<300 && x> 200 && y < edgeY-100 && y> edgeY - 101 && gravity > 0){
+			/*if (x<300 && x> 200 && y < edgeY-100 && y> edgeY - 101 && gravity > 0){
 				isGrounded = true;
-			}
+			}*/
 			
 		//}
 	}
