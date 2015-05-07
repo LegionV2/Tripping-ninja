@@ -18,6 +18,7 @@ public class ScoreState extends GameState {
 	
 	public void render(GameContainer gc, StateBasedGame s, Graphics g) throws SlickException {
 		g.drawString("Hamster came home!", 200, 200);
+		g.drawString("Your score was: " + points, 200, 400);
 		
 	}
 	
@@ -25,6 +26,7 @@ public class ScoreState extends GameState {
 		if (gc.getInput().isKeyPressed(Input.KEY_ENTER)){
 			s.enterState(States.MENU);
 		}
+		
 	}
 	
 	public int getID() {

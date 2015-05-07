@@ -12,6 +12,7 @@ import org.newdawn.slick.state.StateBasedGame;
 import world.World;
 import example.Entity;
 import example.Hamster;
+import example.Spider;
 
 
 
@@ -27,6 +28,12 @@ public class GameState extends BasicGameState {
 		
 		entities = new ArrayList<Entity>();
 		entities.add(new Hamster());
+		entities.add(new Spider());
+		entities.add(new Spider());
+		entities.get(1).x = 300;
+		entities.get(1).y = 750;
+		entities.get(2).x = 600;
+		entities.get(2).y = 750;
 		
 	}
 	
@@ -79,10 +86,11 @@ public class GameState extends BasicGameState {
 
 			a = 400-entities.get(0).x;
 			b = 400-entities.get(0).y;
-		int hugeness = entities.size();
-		for (int i = 0; i < hugeness; i++){
-			entities.get(i).update(gc,delta);
-			
+		
+			int hugeness = entities.size();
+			for (int i = 0; i < hugeness; i++){
+				entities.get(i).update(gc,delta);
+			}
 			if (gc.getInput().isKeyPressed(Input.KEY_5)){
 				points += 5;
 			}
@@ -100,8 +108,6 @@ public class GameState extends BasicGameState {
 			
 		}
 		
-		
-	}
 
 	@Override
 	public int getID() {

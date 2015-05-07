@@ -25,6 +25,7 @@ public class Resources {
 		try {
 			images.put("SpriteLr", loadImage("res/spriteLr.png"));
 			images.put("SpriteRr", loadImage("res/spriteRr.png"));
+			images.put("PH", loadImage("res/mobsteRr.png"));
 			sprites.put("tileset", loadSprite("res/tileset.png",Tile.SMALL_SIZE, Tile.SMALL_SIZE));
 			images.put("StartScreen", loadImage("res/hamster-1761.jpg"));
 		} catch (SlickException e) {
