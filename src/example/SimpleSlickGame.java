@@ -15,7 +15,7 @@ public class SimpleSlickGame extends StateBasedGame
 {
 	float x = 200.0f;
 	float y = 200.0f;
-	float speed = 0.2f;
+	//loat speed = 0.2f;
 	
 	public SimpleSlickGame(String gamename)
 	{

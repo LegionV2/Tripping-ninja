@@ -6,6 +6,7 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 
 import world.World;
+import example.Box;
 
 public abstract class Entity extends Box {
 	

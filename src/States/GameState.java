@@ -14,9 +14,10 @@ import example.Entity;
 import example.Hamster;
 import example.Resources;
 
+
 public class GameState extends BasicGameState {
 
-	private ArrayList<Entity>entities;
+	private ArrayList <Entity> entities;
 	
 	@Override
 	public void init(GameContainer gc, StateBasedGame s) throws SlickException {
@@ -31,16 +32,19 @@ public class GameState extends BasicGameState {
 	public void render(GameContainer gc, StateBasedGame s, Graphics g) throws SlickException {
 		
 		g.drawString("Hamster goes here!!", 200, 200);
-		Resources.getImage("spriteL").draw();
+		Resources.getSpriteImage("tileset",3,3).draw();
 		
+
 		g.translate(0, -550);
+		
 			World.render(0, 550);
 		
-		int amount = entities.size();
-
-		for (int n = 0; n < amount; n++){
-			entities.get(n).render(gc,g);
+		
+		int hugeness = entities.size();
+		for (int i = 0; i < hugeness; i++){
+			entities.get(i).render(gc,g);
 		}
+		
 		
 		g.resetTransform();
 	}
@@ -49,12 +53,17 @@ public class GameState extends BasicGameState {
 	public void update(GameContainer gc, StateBasedGame s, int delta) throws SlickException {
 		if (gc.getInput().isKeyPressed(Input.KEY_ENTER)){
 			s.enterState(States.END);
+			System.out.println("enter is entered");
 			
-			int amount = entities.size();
 
-			for (int n = 0; n < amount; n++){
-				entities.get(n).update(gc,delta);
+			
+
 			}
+		
+		int hugeness = entities.size();
+		for (int i = 0; i < hugeness; i++){
+			entities.get(i).update(gc,delta);
+
 		}
 		
 	}
