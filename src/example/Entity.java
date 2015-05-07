@@ -12,6 +12,8 @@ public abstract class Entity extends Box {
 	
 	public Image image;
 	public Color color;
+	float gravity;
+	
 	
 	public Entity(){
 		init();

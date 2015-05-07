@@ -9,6 +9,7 @@ import example.Resources;
 public class Hamster extends Entity{
 	
 	private float hSpeed = 0.3f;
+	
 
 	@Override
 	public void init() {
