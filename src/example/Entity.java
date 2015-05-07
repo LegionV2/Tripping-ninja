@@ -4,6 +4,7 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
+import org.newdawn.slick.Input;
 
 import world.World;
 import example.Box;
@@ -12,17 +13,11 @@ public abstract class Entity extends Box {
 	
 	public Image image;
 	public Color color;
-	float gravity;
-	boolean isGrounded;
-	
+	public boolean isGrounded = false;
+	public boolean isFalling;
+	public boolean isRising;
 	
 	public Entity(){
-		
-		if (isGrounded == true){
-			gravity = 0.0f;
-		}
-		
-		
 		
 		init();
 	}
@@ -49,7 +44,9 @@ public abstract class Entity extends Box {
 		return (World.hitTest(GetCenterX(),y));
 	}
 	public boolean testDown(){
-		return (World.hitTest(GetCenterX(),GetEndY()));
+		System.out.println (World.hitTest(GetCenterX(), GetEndY()));
+			return (World.hitTest(GetCenterX(),GetEndY()));
+			
 	}
 
 }

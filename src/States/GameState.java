@@ -36,12 +36,11 @@ public class GameState extends BasicGameState {
 		
 		
 		g.drawString("Hamster goes here!!", 200, 200);
-		Resources.getSpriteImage("tileset",3,3).draw();
 		
 
 		g.translate(a, b);
 		
-			World.render(0, -b);
+			World.render(-a, -b);
 		
 		
 		int hugeness = entities.size();
@@ -53,28 +52,15 @@ public class GameState extends BasicGameState {
 
 	@Override
 	public void update(GameContainer gc, StateBasedGame s, int delta) throws SlickException {
-		
-		Input input = gc.getInput();
+
 		if (gc.getInput().isKeyPressed(Input.KEY_ENTER)){
 			s.enterState(States.END);
 			System.out.println("enter is entered");
-			
-
-			
 
 			}
-		
-		if (input.isKeyDown(Input.KEY_D)){
+
 			a = 400-entities.get(0).x;
-		} else if (input.isKeyDown(Input.KEY_A)){
-			a = 400-entities.get(0).x;
-		}
-		if (input.isKeyDown(Input.KEY_W)){
-			b = 200-entities.get(0).y;
-		} else if (input.isKeyDown(Input.KEY_S)){
-			b = 200-entities.get(0).y;
-		}
-		
+			b = 400-entities.get(0).y;
 		int hugeness = entities.size();
 		for (int i = 0; i < hugeness; i++){
 			entities.get(i).update(gc,delta);
