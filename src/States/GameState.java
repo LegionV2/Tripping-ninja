@@ -72,6 +72,8 @@ public class GameState extends BasicGameState {
 			}
 		 if (entities.get(0).x >= 3160) {
 			 s.enterState(States.SCORE);
+			 entities.get(0).x = 400;
+			 entities.get(0).y = 1044;
 		 }
 
 			a = 400-entities.get(0).x;
