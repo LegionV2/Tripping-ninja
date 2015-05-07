@@ -9,6 +9,8 @@ import example.Resources;
 public class Hamster extends Entity{
 	
 	private float hSpeed = 0.3f;
+	float gravity;
+	
 
 	@Override
 	public void init() {
@@ -25,15 +27,6 @@ public class Hamster extends Entity{
 		
 		Input input = gc.getInput();
 		
-		if (input.isKeyDown(Input.KEY_W)){
-			
-			y -= hSpeed*delta;
-		}else
-		
-		if (input.isKeyDown(Input.KEY_S)){
-			
-			y += hSpeed*delta;
-		}
 
 		if (input.isKeyDown(Input.KEY_A)){
 	
@@ -45,12 +38,36 @@ public class Hamster extends Entity{
 			x += hSpeed*delta;
 		}
 		
+		if (isGrounded == true){
+			gravity = 0.0f;
+		}
+		
+		if (input.isKeyPressed(Input.KEY_W) && isGrounded == true){
+			gravity = -9.0f;
+			isGrounded = false;
+			isRising = true;
+
+		}
+		if (isGrounded == false){
+			gravity += 0.3f;
+			y += gravity;
+		}
+
+		
 		if (testLeft()) x += hSpeed*delta;
 		if (testRight()) x -= hSpeed*delta;
-		if (testUp()) y += hSpeed*delta;
-		if (testDown()) y -= hSpeed*delta;
-	}
-	
-	
+		if (testUp() == true){
+			gravity = 0;
+			y += hSpeed*delta;
+		}
+		if (testDown() == false){
+			isGrounded = false;
+		}
+		else if (testDown() == true){
+			gravity = hSpeed*delta;
+			isGrounded = true;
+		} 
+		
+	}	
 
 }
