@@ -44,7 +44,7 @@ public abstract class Entity extends Box {
 		return (World.hitTest(GetCenterX(),y));
 	}
 	public boolean testDown(){
-		System.out.println (World.hitTest(GetCenterX(), GetEndY()));
+
 			return (World.hitTest(GetCenterX(),GetEndY()));
 			
 	}

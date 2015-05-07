@@ -43,13 +43,13 @@ public class Hamster extends Entity{
 		}
 		
 		if (input.isKeyPressed(Input.KEY_W) && isGrounded == true){
-			gravity = -9.0f;
+			gravity = -7.5f;
 			isGrounded = false;
 			isRising = true;
 
 		}
 		if (isGrounded == false){
-			gravity += 0.3f;
+			gravity += 0.2f;
 			y += gravity;
 		}
 

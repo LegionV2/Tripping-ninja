@@ -41,11 +41,20 @@ public class GameState extends BasicGameState {
 		g.translate(a, b);
 		
 			World.render(-a, -b);
+			
 		
 		
 		int hugeness = entities.size();
 		for (int i = 0; i < hugeness; i++){
 			entities.get(i).render(gc,g);
+			
+			System.out.println(entities.get(0).x);
+			System.out.println(entities.get(0).y);
+			if (entities.get(0).y>1367){
+				entities.get(0).y =750;
+				entities.get(0).x =400;
+				
+			}
 		}
 		g.resetTransform();
 	}
@@ -64,7 +73,18 @@ public class GameState extends BasicGameState {
 		int hugeness = entities.size();
 		for (int i = 0; i < hugeness; i++){
 			entities.get(i).update(gc,delta);
-
+			
+			if (b<-550){
+				b=-550;
+				}
+			
+				if (a>=-0){
+					a=0;
+				}
+			if (a<=-2400){
+						a=-2400;
+				}
+			
 		}
 		
 		
