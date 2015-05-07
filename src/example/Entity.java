@@ -35,10 +35,10 @@ public abstract class Entity extends Box {
 		return (World.hitTest(GetEndX(),GetCenterY()));
 	}
 	public boolean testUp(){
-		return (World.hitTest(y,GetCenterX()));
+		return (World.hitTest(GetCenterX(),y));
 	}
 	public boolean testDown(){
-		return (World.hitTest(GetEndY(),GetCenterX()));
+		return (World.hitTest(GetCenterX(),GetEndY()));
 	}
 
 }
