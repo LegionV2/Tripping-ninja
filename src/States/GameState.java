@@ -91,9 +91,9 @@ public class GameState extends BasicGameState {
 			for (int i = 0; i < hugeness; i++){
 				entities.get(i).update(gc,delta);
 			}
-			if (gc.getInput().isKeyPressed(Input.KEY_5)){
+			/*if (gc.getInput().isKeyPressed(Input.KEY_5)){
 				points += 5;
-			}
+			}*/
 			
 			if (b<-550){
 				b=-550;
