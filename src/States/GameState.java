@@ -35,12 +35,13 @@ public class GameState extends BasicGameState {
 		
 		
 		
-		g.drawString("Hamster goes here!!", 200, 200);
-		
 
 		g.translate(a, b);
 		
 			World.render(-a, -b);
+
+			g.drawString("Lives =", -a+50, -b+50);
+			g.drawString("Points =",-a+200, -b+50);
 			
 		
 		
@@ -48,23 +49,25 @@ public class GameState extends BasicGameState {
 		for (int i = 0; i < hugeness; i++){
 			entities.get(i).render(gc,g);
 			
-			System.out.println(entities.get(0).x);
-			System.out.println(entities.get(0).y);
+		}
 			if (entities.get(0).y>1367){
 				entities.get(0).y =750;
 				entities.get(0).x =400;
 				
+			
+				
 			}
-		}
+		
+		
 		g.resetTransform();
 	}
 
 	@Override
 	public void update(GameContainer gc, StateBasedGame s, int delta) throws SlickException {
 
-		if (gc.getInput().isKeyPressed(Input.KEY_ENTER)){
+		if (gc.getInput().isKeyPressed(Input.KEY_ESCAPE)){
 			s.enterState(States.END);
-			System.out.println("enter is entered");
+			
 
 			}
 
