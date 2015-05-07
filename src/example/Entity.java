@@ -13,9 +13,17 @@ public abstract class Entity extends Box {
 	public Image image;
 	public Color color;
 	float gravity;
+	boolean isGrounded;
 	
 	
 	public Entity(){
+		
+		if (isGrounded == true){
+			gravity = 0.0f;
+		}
+		
+		
+		
 		init();
 	}
 	
@@ -28,6 +36,7 @@ public abstract class Entity extends Box {
 		}
 	}
 	public abstract void update (GameContainer gc, int delta);
+	
 	
 	public boolean testLeft(){
 		return (World.hitTest(x,GetCenterY()));
