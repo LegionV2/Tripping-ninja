@@ -9,7 +9,7 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SpriteSheet;
 
 import example.Resources;
-import example.Window;
+//import example.Window;
 
 public class World {
 	
@@ -22,16 +22,16 @@ public class World {
 		int offset = 2;
 		int xStart = (int)(xRender/Tile.SIZE)-offset;
 		int yStart = (int)(yRender/Tile.SIZE)-offset;
-		int xEnd = (Window.WIDTH/Tile.SIZE)+xStart + (offset*2);
-		int yEnd = (Window.HEIGHT/Tile.SIZE)+yStart + (offset*2);
+		//int xEnd = (Window.WIDTH/Tile.SIZE)+xStart + (offset*2);
+		//int yEnd = (Window.HEIGHT/Tile.SIZE)+yStart + (offset*2);
 		
-		for (int x = xStart; x < xEnd; x++){
+		/*for (int x = xStart; x < xEnd; x++){
 			for (int y = yStart; y < yEnd; y++){
 				if(solidTile(x,y)){
 					solids[x][y].draw(x * Tile.SIZE, y * Tile.SIZE, Tile.SIZE, Tile.SIZE);
 				}
 			}
-		}
+		}*/
 	}
 
 	public static void load(String path) throws Exception{

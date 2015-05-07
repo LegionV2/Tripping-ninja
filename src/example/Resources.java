@@ -45,7 +45,7 @@ public class Resources {
 		return sprites.get(getter).getSubImage(x, y);
 	}
 	
-	public static Image getSprite(String getter){
+	public static SpriteSheet getSprite(String getter){
 		return sprites.get(getter);
 	}
 	
