@@ -20,16 +20,17 @@ public class GameState extends BasicGameState {
 	private ArrayList <Entity> entities;
 	public float a;
 	public float b = -550;
+	int points;
 	
 	@Override
 	public void init(GameContainer gc, StateBasedGame s) throws SlickException {
 		
 		entities = new ArrayList<Entity>();
-		
 		entities.add(new Hamster());
 		
 	}
-
+	
+	
 	@Override
 	public void render(GameContainer gc, StateBasedGame s, Graphics g) throws SlickException {
 		
@@ -40,8 +41,8 @@ public class GameState extends BasicGameState {
 		
 			World.render(-a, -b);
 
-			g.drawString("Lives =", -a+50, -b+50);
-			g.drawString("Points =",-a+200, -b+50);
+			g.drawString("Lives : ", -a+50, -b+50);
+			g.drawString("Points : " + points,-a+200, -b+50);
 			
 		
 		
@@ -81,6 +82,10 @@ public class GameState extends BasicGameState {
 		int hugeness = entities.size();
 		for (int i = 0; i < hugeness; i++){
 			entities.get(i).update(gc,delta);
+			
+			if (gc.getInput().isKeyPressed(Input.KEY_5)){
+				points += 5;
+			}
 			
 			if (b<-550){
 				b=-550;

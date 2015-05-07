@@ -4,7 +4,7 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
-import org.newdawn.slick.Input;
+
 
 import world.World;
 import example.Box;
@@ -12,7 +12,6 @@ import example.Box;
 public abstract class Entity extends Box {
 	
 	public Image image;
-	public Image image2;
 	public Color color;
 	public boolean isGrounded = false;
 	public boolean isFalling;
