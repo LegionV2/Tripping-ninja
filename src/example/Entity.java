@@ -12,6 +12,7 @@ import example.Box;
 public abstract class Entity extends Box {
 	
 	public Image image;
+	public Image image2;
 	public Color color;
 	public boolean isGrounded = false;
 	public boolean isFalling;

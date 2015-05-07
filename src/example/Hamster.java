@@ -15,10 +15,10 @@ public class Hamster extends Entity{
 	@Override
 	public void init() {
 		x = 400;
-		y = 750;
+		y = 1055;
 		width = 31;
 		height = 32;
-		image = Resources.getImage("SpriteLr");
+		image = Resources.getImage("SpriteRr");
 		
 	}
 
@@ -29,12 +29,12 @@ public class Hamster extends Entity{
 		
 
 		if (input.isKeyDown(Input.KEY_A)){
-	
+			image = Resources.getImage("SpriteLr");
 			x -= hSpeed*delta;
 		} else
 
 		if (input.isKeyDown(Input.KEY_D)){
-	
+			image = Resources.getImage("SpriteRr");
 			x += hSpeed*delta;
 		}
 		
@@ -52,7 +52,10 @@ public class Hamster extends Entity{
 			gravity += 0.2f;
 			y += gravity;
 		}
-
+		
+		if (gravity >= 8){ // terminal velocity
+			gravity = 8;
+		}
 		
 		if (testLeft()) x += hSpeed*delta;
 		if (testRight()) x -= hSpeed*delta;

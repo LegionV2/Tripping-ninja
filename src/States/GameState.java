@@ -12,7 +12,7 @@ import org.newdawn.slick.state.StateBasedGame;
 import world.World;
 import example.Entity;
 import example.Hamster;
-import example.Resources;
+
 
 
 public class GameState extends BasicGameState {
@@ -51,7 +51,7 @@ public class GameState extends BasicGameState {
 			
 		}
 			if (entities.get(0).y>1367){
-				entities.get(0).y =750;
+				entities.get(0).y =1044;
 				entities.get(0).x =400;
 				
 			
@@ -70,6 +70,9 @@ public class GameState extends BasicGameState {
 			
 
 			}
+		 if (entities.get(0).x >= 3160) {
+			 s.enterState(States.SCORE);
+		 }
 
 			a = 400-entities.get(0).x;
 			b = 400-entities.get(0).y;
