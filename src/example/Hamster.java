@@ -15,7 +15,9 @@ public class Hamster extends Entity{
 	@Override
 	public void init() {
 		x = 400;
-		y = 1055;
+		//x = 2450;
+		 y = 1055;
+		//y = 750;
 		width = 31;
 		height = 32;
 		image = Resources.getImage("SpriteRr");
@@ -70,8 +72,11 @@ public class Hamster extends Entity{
 		else if (testDown() == true){
 			gravity = hSpeed*delta;
 			isGrounded = true;
-		} 
-		
+		}
+		/*if (testEnemy()){
+			gravity = hSpeed*delta;
+			isGrounded = true;
+		}*/
 	}	
 
 }

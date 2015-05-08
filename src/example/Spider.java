@@ -5,15 +5,21 @@ import org.newdawn.slick.GameContainer;
 
 public class Spider extends Entity {
 	
-	int xspawn;
-	int yspawn;
+	float xspawn = x;
+	float yspawn = y;
+	float movement;
+	float midPosition;
+	boolean upwards = true;
+	boolean downwards = false;
 
 	@Override
 	public void init() {
 		x = xspawn;
 		y = yspawn;
-		width = 108;
-		height = 133;
+		midPosition = y/2;
+		movement = 0.3f;
+		width = 40;
+		height = 40;
 		image = Resources.getImage("PH");
 		
 	}
@@ -21,7 +27,16 @@ public class Spider extends Entity {
 	@Override
 	public void update(GameContainer gc, int delta) {
 		
+		y += movement*delta;
 		
+		if (testDown()) {
+			y -= 1;
+			movement *= -1;
+		}
+		if (testUp()) {
+			y += 1;
+			movement *= -1;
+		}
 	}
 
 }

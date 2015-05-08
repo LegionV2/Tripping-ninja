@@ -19,7 +19,7 @@ public class GameState2 extends BasicGameState {
 	private ArrayList <Entity> entities;
 	public float a;
 	public float b = -550;
-	int points;
+	public int points;
 	
 	@Override
 	public void init(GameContainer gc, StateBasedGame s) throws SlickException {
@@ -79,6 +79,7 @@ public class GameState2 extends BasicGameState {
 			}
 		if (gc.getInput().isKeyPressed(Input.KEY_ENTER)){} //prevents state skipping
 		 if (entities.get(0).x >= 3160) {
+			 System.out.println("your points was"+ points);
 			 s.enterState(States.SCORE);
 			 entities.get(0).x = 400;
 			 entities.get(0).y = 1044;

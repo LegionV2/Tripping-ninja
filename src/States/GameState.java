@@ -21,7 +21,8 @@ public class GameState extends BasicGameState {
 	private ArrayList <Entity> entities;
 	public float a;
 	public float b = -550;
-	int points;
+	public static int points =5000;
+	int lives = 5;
 	
 	@Override
 	public void init(GameContainer gc, StateBasedGame s) throws SlickException {
@@ -30,11 +31,19 @@ public class GameState extends BasicGameState {
 		entities.add(new Hamster());
 		entities.add(new Spider());
 		entities.add(new Spider());
-		entities.get(1).x = 300;
+		entities.add(new Spider());
+		entities.add(new Spider());
+		entities.add(new Spider());
+		entities.get(1).x = 1068;
 		entities.get(1).y = 750;
 		entities.get(2).x = 600;
 		entities.get(2).y = 750;
-		
+		entities.get(3).x = 2700;
+		entities.get(3).y = 750;
+		entities.get(4).x = 2015;
+		entities.get(4).y = 650;
+		entities.get(5).x = 2521;
+		entities.get(5).y = 750;
 	}
 	
 	
@@ -48,10 +57,19 @@ public class GameState extends BasicGameState {
 		
 			World.render(-a, -b);
 
-			g.drawString("Lives : ", -a+50, -b+50);
+			g.drawString("Lives : " + lives , -a+50, -b+50);
 			g.drawString("Points : " + points,-a+200, -b+50);
 			
-		
+			if (points>0){points--;
+			}
+		if (points == 0){
+			lives--;
+			points =5000;
+			entities.get(0).y =1044;
+			entities.get(0).x =400;
+			
+		}
+			
 		
 		int hugeness = entities.size();
 		for (int i = 0; i < hugeness; i++){
@@ -61,12 +79,17 @@ public class GameState extends BasicGameState {
 			if (entities.get(0).y>1367){
 				entities.get(0).y =1044;
 				entities.get(0).x =400;
-				
+				lives--; 
 			
 				
 			}
-		
-		
+		if (lives==0){
+			s.enterState(States.END);
+			lives = 5;
+			points = 5000;
+				
+		}
+			
 		g.resetTransform();
 	}
 
@@ -89,7 +112,9 @@ public class GameState extends BasicGameState {
 
 			a = 400-entities.get(0).x;
 			b = 400-entities.get(0).y;
-		
+			
+			System.out.println(entities.get(0).x);
+			
 			int hugeness = entities.size();
 			for (int i = 0; i < hugeness; i++){
 				entities.get(i).update(gc,delta);
@@ -98,6 +123,15 @@ public class GameState extends BasicGameState {
 				points += 5;
 			}*/
 			
+
+			for (int i = 1; i < hugeness; i++){
+				if (entities.get(0).hitTest(entities.get(i))){
+					lives --;
+					entities.get(0).x = 400;
+					entities.get(0).y = 1044;
+				}
+			}
+				
 			if (b<-550){
 				b=-550;
 				}

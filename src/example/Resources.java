@@ -22,6 +22,7 @@ public class Resources {
 		sprites = new HashMap<String, SpriteSheet>();
 		sounds = new HashMap<String, Sound>();
 		
+		
 		try {
 			images.put("SpriteLr", loadImage("res/spriteLr.png"));
 			images.put("SpriteRr", loadImage("res/spriteRr.png"));
