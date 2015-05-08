@@ -13,6 +13,7 @@ public abstract class Entity extends Box {
 	
 	public Image image;
 	public Color color;
+	public Box b;
 	public boolean isGrounded = false;
 	
 	public Entity(){
@@ -39,12 +40,15 @@ public abstract class Entity extends Box {
 		return (World.hitTest(GetEndX(),GetCenterY()));
 	}
 	public boolean testUp(){
-		return (World.hitTest(GetCenterX(),y));
+		return World.hitTest(GetCenterX(),y);
 	}
 	public boolean testDown(){
 
 			return (World.hitTest(GetCenterX(),GetEndY()));
 			
+	}
+	public boolean testEnemy(){
+		return (hitTest(b));
 	}
 
 }

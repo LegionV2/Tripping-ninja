@@ -30,11 +30,19 @@ public class GameState extends BasicGameState {
 		entities.add(new Hamster());
 		entities.add(new Spider());
 		entities.add(new Spider());
-		entities.get(1).x = 300;
+		entities.add(new Spider());
+		entities.add(new Spider());
+		entities.add(new Spider());
+		entities.get(1).x = 1068;
 		entities.get(1).y = 750;
 		entities.get(2).x = 600;
 		entities.get(2).y = 750;
-		
+		entities.get(3).x = 2700;
+		entities.get(3).y = 750;
+		entities.get(4).x = 2010;
+		entities.get(4).y = 550;
+		entities.get(5).x = 2521;
+		entities.get(5).y = 750;
 	}
 	
 	
@@ -89,7 +97,9 @@ public class GameState extends BasicGameState {
 
 			a = 400-entities.get(0).x;
 			b = 400-entities.get(0).y;
-		
+			
+			System.out.println(entities.get(0).x);
+			
 			int hugeness = entities.size();
 			for (int i = 0; i < hugeness; i++){
 				entities.get(i).update(gc,delta);
