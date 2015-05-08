@@ -37,6 +37,7 @@ public class MenuState extends BasicGameState {
 	public void update(GameContainer gc, StateBasedGame s, int delta) throws SlickException {
 		if (gc.getInput().isKeyPressed(Input.KEY_ENTER)){
 			GameState.points = 5000;
+			GameState.lives = 5;
 			s.enterState(States.GAME);
 		}
 		if (gc.getInput().isKeyPressed(Input.KEY_ESCAPE)){
