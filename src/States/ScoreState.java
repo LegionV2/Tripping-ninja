@@ -27,6 +27,7 @@ public class ScoreState extends BasicGameState {
 		if (gc.getInput().isKeyPressed(Input.KEY_ENTER)){
 			s.enterState(States.MENU);
 		}
+		if (gc.getInput().isKeyPressed(Input.KEY_ESCAPE)){} //prevents state skipping
 		
 	}
 	

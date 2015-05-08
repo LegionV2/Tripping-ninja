@@ -34,6 +34,7 @@ public class MenuState extends BasicGameState {
 		if (gc.getInput().isKeyPressed(Input.KEY_ENTER)){
 			s.enterState(States.GAME);
 		}
+		if (gc.getInput().isKeyPressed(Input.KEY_ESCAPE)){} //prevents state skipping
 		
 	}
 
