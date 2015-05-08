@@ -51,8 +51,8 @@ public class SimpleSlickGame extends StateBasedGame
 		new Resources();
 		
 		try {
-			World.load("res/maps/world1.json");
-			World2.load("res/maps/Level2.json");
+			World.load("res/maps/Level2.json");
+			//World2.load("res/maps/Level2.json");
 		} catch (Exception e) {
 			System.err.println("Map does not exist!");
 			System.exit(0);

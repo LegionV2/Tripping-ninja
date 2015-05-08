@@ -9,6 +9,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import world.World;
 import world.World2;
 import example.Entity;
 import example.Hamster;
@@ -17,8 +18,8 @@ import example.Spider;
 public class GameState2 extends BasicGameState {
 	
 	private ArrayList <Entity> entities;
-	public float a;
-	public float b = -550;
+	public float a = 0;
+	public float b = -0;
 	int points;
 	
 	@Override
@@ -28,6 +29,8 @@ public class GameState2 extends BasicGameState {
 		entities.add(new Hamster());
 		entities.add(new Spider());
 		entities.add(new Spider());
+		entities.get(0).x = 0;
+		entities.get(0).y = -700;
 		entities.get(1).x = 300;
 		entities.get(1).y = 750;
 		entities.get(2).x = 600;
@@ -44,7 +47,7 @@ public class GameState2 extends BasicGameState {
 
 		g.translate(a, b);
 		
-			World2.render(-a, -b);
+			World.render(-a, -b);
 
 			g.drawString("Lives : ", -a+50, -b+50);
 			g.drawString("Points : " + points,-a+200, -b+50);
@@ -56,13 +59,13 @@ public class GameState2 extends BasicGameState {
 			entities.get(i).render(gc,g);
 			
 		}
-			if (entities.get(0).y>1367){
+			/*if (entities.get(0).y>1367){
 				entities.get(0).y =1044;
 				entities.get(0).x =400;
 				
 			
 				
-			}
+			}*/
 		
 		
 		g.resetTransform();
@@ -77,11 +80,11 @@ public class GameState2 extends BasicGameState {
 			entities.get(0).y = 1044;
 
 			}
-		 if (entities.get(0).x >= 3160) {
+		 /*if (entities.get(0).x >= 3160) {
 			 s.enterState(States.SCORE);
 			 entities.get(0).x = 400;
 			 entities.get(0).y = 1044;
-		 }
+		 }*/
 
 			a = 400-entities.get(0).x;
 			b = 400-entities.get(0).y;

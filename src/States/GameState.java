@@ -30,6 +30,8 @@ public class GameState extends BasicGameState {
 		entities.add(new Hamster());
 		entities.add(new Spider());
 		entities.add(new Spider());
+		entities.get(0).x = 400;
+		entities.get(0).y = 1044;
 		entities.get(1).x = 300;
 		entities.get(1).y = 750;
 		entities.get(2).x = 600;
@@ -58,13 +60,13 @@ public class GameState extends BasicGameState {
 			entities.get(i).render(gc,g);
 			
 		}
-			if (entities.get(0).y>1367){
+			/*if (entities.get(0).y>1367){
 				entities.get(0).y =1044;
 				entities.get(0).x =400;
 				
 			
 				
-			}
+			}*/
 		
 		
 		g.resetTransform();
@@ -79,11 +81,11 @@ public class GameState extends BasicGameState {
 			entities.get(0).y = 1044;
 
 			}
-		 if (entities.get(0).x >= 3160) {
+		/* if (entities.get(0).x >= 3160) {
 			 s.enterState(States.SCORE);
 			 entities.get(0).x = 400;
 			 entities.get(0).y = 1044;
-		 }
+		 }*/
 
 			a = 400-entities.get(0).x;
 			b = 400-entities.get(0).y;
@@ -96,7 +98,7 @@ public class GameState extends BasicGameState {
 				points += 5;
 			}*/
 			
-			if (b<-550){
+			/*if (b<-550){
 				b=-550;
 				}
 			
@@ -105,8 +107,7 @@ public class GameState extends BasicGameState {
 				}
 			if (a<=-2400){
 						a=-2400;
-				}
-			
+				}*/
 		}
 		
 

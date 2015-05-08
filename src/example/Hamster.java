@@ -8,14 +8,16 @@ import example.Resources;
 
 public class Hamster extends Entity{
 	
-	private float hSpeed = 0.3f;
+	private float hSpeed = 10.0f;
 	float gravity;
+	int hSpawnX;
+	int hSpawnY;
 	
 
 	@Override
 	public void init() {
-		x = 400;
-		y = 1055;
+		x = hSpawnX;
+		y = hSpawnY;
 		width = 31;
 		height = 32;
 		image = Resources.getImage("SpriteRr");
@@ -38,29 +40,34 @@ public class Hamster extends Entity{
 			x += hSpeed*delta;
 		}
 		
-		if (isGrounded == true){
-			gravity = 0.0f;
+		if (input.isKeyDown(Input.KEY_W)){
+			y -= hSpeed*delta;
+		}else if (input.isKeyDown(Input.KEY_S)){
+			y += hSpeed*delta;
+		
+		/*if (isGrounded == true){
+			gravity = 0.0f;*/
 		}
 		
-		if (input.isKeyPressed(Input.KEY_W) && isGrounded == true){//So you can't jump in the air
+		/*if (input.isKeyPressed(Input.KEY_W) && isGrounded == true){//So you can't jump in the air
 			gravity = -7.5f;
 			isGrounded = false;
 
-		}
+		}*/
 		
-		if (isGrounded == false){ //Basic gravity
+		/*if (isGrounded == false){ //Basic gravity
 			gravity += 0.2f;
 			y += gravity;
-		}
+		}*/
 		
-		if (gravity >= 7.5f){ // terminal velocity
+		/*if (gravity >= 7.5f){ // terminal velocity
 			gravity = 7.5f;
-		}
+		}*/
 /////////////////////////////////////////////////Collision//////////////////////////////////////////////////////
 		if (testLeft()) x += hSpeed*delta;
 		if (testRight()) x -= hSpeed*delta;
 		if (testUp() == true){
-			gravity = 0;     //Stops hamster when hitting something above him
+			//gravity = 0;     //Stops hamster when hitting something above him
 			y += hSpeed*delta;
 		}
 		//While making ground collision detection also creates gravity when no collision is detected
@@ -69,7 +76,7 @@ public class Hamster extends Entity{
 		}
 		else if (testDown() == true){
 			gravity = hSpeed*delta;
-			isGrounded = true;
+			//isGrounded = true;
 		} 
 		
 	}	
