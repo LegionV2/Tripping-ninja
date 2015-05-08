@@ -14,8 +14,6 @@ public abstract class Entity extends Box {
 	public Image image;
 	public Color color;
 	public boolean isGrounded = false;
-	public boolean isFalling;
-	public boolean isRising;
 	
 	public Entity(){
 		

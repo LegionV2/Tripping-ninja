@@ -27,7 +27,7 @@ public class Hamster extends Entity{
 		
 		Input input = gc.getInput();
 		
-
+//////////////////////////////////////////////////////movement///////////////////////////////////////////////////////////////
 		if (input.isKeyDown(Input.KEY_A)){
 			image = Resources.getImage("SpriteLr");
 			x -= hSpeed*delta;
@@ -42,13 +42,13 @@ public class Hamster extends Entity{
 			gravity = 0.0f;
 		}
 		
-		if (input.isKeyPressed(Input.KEY_W) && isGrounded == true){
+		if (input.isKeyPressed(Input.KEY_W) && isGrounded == true){//So you can't jump in the air
 			gravity = -7.5f;
 			isGrounded = false;
-			isRising = true;
 
 		}
-		if (isGrounded == false){
+		
+		if (isGrounded == false){ //Basic gravity
 			gravity += 0.2f;
 			y += gravity;
 		}
@@ -56,13 +56,14 @@ public class Hamster extends Entity{
 		if (gravity >= 7.5f){ // terminal velocity
 			gravity = 7.5f;
 		}
-		
+/////////////////////////////////////////////////Collision//////////////////////////////////////////////////////
 		if (testLeft()) x += hSpeed*delta;
 		if (testRight()) x -= hSpeed*delta;
 		if (testUp() == true){
-			gravity = 0;
+			gravity = 0;     //Stops hamster when hitting something above him
 			y += hSpeed*delta;
 		}
+		//While making ground collision detection also creates gravity when no collision is detected
 		if (testDown() == false){
 			isGrounded = false;
 		}
