@@ -54,7 +54,14 @@ public class GameState extends BasicGameState {
 			
 			if (points>0){points--;
 			}
-		
+		if (points == 0){
+			lives--;
+			points =5000;
+			entities.get(0).y =1044;
+			entities.get(0).x =400;
+			
+		}
+			
 		
 		int hugeness = entities.size();
 		for (int i = 0; i < hugeness; i++){
