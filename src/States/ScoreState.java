@@ -25,9 +25,10 @@ public class ScoreState extends BasicGameState {
 		
 		victor = Resources.getImage("Victory");
 		victor.draw(0,0,Window.WIDTH,Window.HEIGHT);
-		g.drawString("The hamster came home!", 300, 50);
-		g.drawString("Your score was: "+ GameState.points, 300, 70);
-		g.drawString("You had " + GameState.lives + " lives left.", 300, 90);
+		g.drawString("The hamster came home!", 300, 10);
+		g.drawString("Your score was: "+ GameState.points, 300, 30);
+		g.drawString("You had " + GameState.lives + " lives left.", 300, 50);
+		g.drawString("Press ENTER to return to the main menu.", 245, 70);
 
 		
 		

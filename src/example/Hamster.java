@@ -14,8 +14,8 @@ public class Hamster extends Entity{
 
 	@Override
 	public void init() {
-		//x = 400;
-		x = 2750;
+		x = 400;
+		//x = 2750;
 		 y = 1055;
 		//y = 750;
 		width = 31;
