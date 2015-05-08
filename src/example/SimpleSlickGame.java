@@ -9,6 +9,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
 import world.World;
+import world.World2;
 import States.*; // Imports everything from States class
 
 public class SimpleSlickGame extends StateBasedGame
@@ -51,6 +52,7 @@ public class SimpleSlickGame extends StateBasedGame
 		
 		try {
 			World.load("res/maps/world1.json");
+			World2.load("res/maps/Level2.json");
 		} catch (Exception e) {
 			System.err.println("Map does not exist!");
 			System.exit(0);
@@ -60,6 +62,7 @@ public class SimpleSlickGame extends StateBasedGame
 		this.addState(new GameState());
 		this.addState(new EndState());
 		this.addState(new ScoreState());
+		this.addState(new GameState2());
 		
 	}
 }

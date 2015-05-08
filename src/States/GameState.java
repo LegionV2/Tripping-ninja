@@ -74,7 +74,7 @@ public class GameState extends BasicGameState {
 	public void update(GameContainer gc, StateBasedGame s, int delta) throws SlickException {
 
 		if (gc.getInput().isKeyPressed(Input.KEY_ESCAPE)){
-			s.enterState(States.END);
+			s.enterState(States.GAME2);
 			entities.get(0).x = 400;
 			entities.get(0).y = 1044;
 
