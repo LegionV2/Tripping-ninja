@@ -29,8 +29,14 @@ public class Spider extends Entity {
 		
 		y += movement*delta;
 		
-		if (testDown()) movement *= -1;
-		if (testUp()) movement *= -1;
+		if (testDown()) {
+			y -= 1;
+			movement *= -1;
+		}
+		if (testUp()) {
+			y += 1;
+			movement *= -1;
+		}
 	}
 
 }

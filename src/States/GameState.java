@@ -84,8 +84,9 @@ public class GameState extends BasicGameState {
 				
 			}
 		if (lives==0){
-			points =5000;
+			s.enterState(States.END);
 			lives = 5;
+			points = 5000;
 				
 		}
 			
@@ -122,7 +123,14 @@ public class GameState extends BasicGameState {
 				points += 5;
 			}*/
 			
-				
+
+			for (int i = 1; i < hugeness; i++){
+				if (entities.get(0).hitTest(entities.get(i))){
+					lives --;
+					entities.get(0).x = 400;
+					entities.get(0).y = 1044;
+				}
+			}
 				
 			if (b<-550){
 				b=-550;
