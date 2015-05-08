@@ -40,8 +40,8 @@ public class GameState extends BasicGameState {
 		entities.get(2).y = 750;
 		entities.get(3).x = 2700;
 		entities.get(3).y = 750;
-		entities.get(4).x = 2010;
-		entities.get(4).y = 550;
+		entities.get(4).x = 2015;
+		entities.get(4).y = 650;
 		entities.get(5).x = 2521;
 		entities.get(5).y = 750;
 	}
