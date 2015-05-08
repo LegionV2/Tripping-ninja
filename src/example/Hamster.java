@@ -53,8 +53,8 @@ public class Hamster extends Entity{
 			y += gravity;
 		}
 		
-		if (gravity >= 8){ // terminal velocity
-			gravity = 8;
+		if (gravity >= 7.5f){ // terminal velocity
+			gravity = 7.5f;
 		}
 		
 		if (testLeft()) x += hSpeed*delta;
