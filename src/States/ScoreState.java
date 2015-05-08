@@ -2,16 +2,18 @@ package States;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
 import example.Resources;
+import example.Window;
 
 public class ScoreState extends BasicGameState {
 
-
+	Image victor;
 	@Override
 	public void init(GameContainer arg0, StateBasedGame arg1)
 			throws SlickException {
@@ -20,8 +22,13 @@ public class ScoreState extends BasicGameState {
 	}
 	
 	public void render(GameContainer gc, StateBasedGame s, Graphics g) throws SlickException {
-		g.drawString("Hamster came home!", 200, 200);
-		g.drawString("Your score was: "+ GameState.points , 200, 400);
+		
+		victor = Resources.getImage("Victory");
+		victor.draw(0,0,Window.WIDTH,Window.HEIGHT);
+		g.drawString("The hamster came home!", 300, 50);
+		g.drawString("Your score was: "+ GameState.points, 300, 70);
+		g.drawString("You had " + GameState.lives + " lives left.", 300, 90);
+
 		
 		
 	}

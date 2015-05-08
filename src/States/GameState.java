@@ -22,7 +22,7 @@ public class GameState extends BasicGameState {
 	public float a;
 	public float b = -550;
 	public static int points =5000;
-	int lives = 5;
+	public static int lives = 5;
 	
 	@Override
 	public void init(GameContainer gc, StateBasedGame s) throws SlickException {
