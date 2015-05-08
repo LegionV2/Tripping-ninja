@@ -4,9 +4,10 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
-public class ScoreState extends GameState {
+public class ScoreState extends BasicGameState {
 
 
 	@Override
@@ -18,7 +19,7 @@ public class ScoreState extends GameState {
 	
 	public void render(GameContainer gc, StateBasedGame s, Graphics g) throws SlickException {
 		g.drawString("Hamster came home!", 200, 200);
-		g.drawString("Your score was: " + points, 200, 400);
+		g.drawString("Your score was: ", 200, 400);
 		
 	}
 	

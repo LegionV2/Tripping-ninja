@@ -75,7 +75,8 @@ public class GameState extends BasicGameState {
 
 		if (gc.getInput().isKeyPressed(Input.KEY_ESCAPE)){
 			s.enterState(States.END);
-			
+			entities.get(0).x = 400;
+			entities.get(0).y = 1044;
 
 			}
 		 if (entities.get(0).x >= 3160) {
