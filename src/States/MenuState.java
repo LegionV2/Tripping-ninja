@@ -16,7 +16,6 @@ public class MenuState extends BasicGameState {
 	
 	@Override
 	public void init(GameContainer gc, StateBasedGame s) throws SlickException {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -32,6 +31,7 @@ public class MenuState extends BasicGameState {
 	@Override
 	public void update(GameContainer gc, StateBasedGame s, int delta) throws SlickException {
 		if (gc.getInput().isKeyPressed(Input.KEY_ENTER)){
+			GameState.points = 5000;
 			s.enterState(States.GAME);
 		}
 		if (gc.getInput().isKeyPressed(Input.KEY_ESCAPE)){} //prevents state skipping
