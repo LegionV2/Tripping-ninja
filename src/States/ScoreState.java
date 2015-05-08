@@ -30,8 +30,11 @@ public class ScoreState extends BasicGameState {
 		g.drawString("You had " + GameState.lives + " lives left.", 300, 50);
 		g.drawString("Press ENTER to return to the main menu.", 245, 70);
 
-		
-		
+		g.drawString("Special thanks to for pictures and sprits.", 205, 500);
+		g.drawString("http://animals.desktopnexus.com/wallpaper/940258/", 200, 520);
+		g.drawString("Hamster domestique - Wamiz", 200, 540);
+		g.drawString("https://www.pinterest.com/pin/46091596158326998/", 200, 560);
+		g.drawString("bunnynibble15", 200, 580);
 	}
 	
 	public void update(GameContainer gc, StateBasedGame s, int delta) throws SlickException {

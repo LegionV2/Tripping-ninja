@@ -113,7 +113,7 @@ public class GameState extends BasicGameState {
 			a = 400-entities.get(0).x;
 			b = 400-entities.get(0).y;
 			
-			System.out.println(entities.get(0).x);
+			
 			
 			int hugeness = entities.size();
 			for (int i = 0; i < hugeness; i++){

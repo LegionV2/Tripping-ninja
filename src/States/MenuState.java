@@ -1,5 +1,6 @@
 package States;
 
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -24,6 +25,10 @@ public class MenuState extends BasicGameState {
 		g.drawString("Hamster is not yet here!!", 200, 200);
 		startS = Resources.getImage("StartScreen");
 		startS.draw(0,0,800,600);
+		g.setColor(Color.black);
+		g.drawString("Game Made by: Rasmus k. Olesen", 450, 560);
+		g.drawString("Kristoffer Piper, Patrick S.W.A", 450, 580);
+		g.setColor(Color.white);
 		
 		
 	}
@@ -34,7 +39,10 @@ public class MenuState extends BasicGameState {
 			GameState.points = 5000;
 			s.enterState(States.GAME);
 		}
-		if (gc.getInput().isKeyPressed(Input.KEY_ESCAPE)){} //prevents state skipping
+		if (gc.getInput().isKeyPressed(Input.KEY_ESCAPE)){
+			
+			System.exit(1);
+		} //prevents state skipping
 		
 	}
 
