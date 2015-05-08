@@ -30,7 +30,8 @@ public class ScoreState extends BasicGameState {
 		g.drawString("You had " + GameState.lives + " lives left.", 300, 50);
 		g.drawString("Press ENTER to return to the main menu.", 245, 70);
 
-		g.drawString("Special thanks to for pictures and sprits.", 205, 500);
+		g.drawString("Special thanks to for pictures and sprits.", 205, 480);
+		g.drawString("d13yacurqjgara.cloudfront.net", 205, 500);
 		g.drawString("http://animals.desktopnexus.com/wallpaper/940258/", 200, 520);
 		g.drawString("Hamster domestique - Wamiz", 200, 540);
 		g.drawString("https://www.pinterest.com/pin/46091596158326998/", 200, 560);
