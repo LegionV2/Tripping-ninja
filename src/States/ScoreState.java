@@ -19,7 +19,7 @@ public class ScoreState extends BasicGameState {
 	
 	public void render(GameContainer gc, StateBasedGame s, Graphics g) throws SlickException {
 		g.drawString("Hamster came home!", 200, 200);
-		g.drawString("Your score was: ", 200, 400);
+		g.drawString("Your score was: "+ GameState.points , 200, 400);
 		
 	}
 	

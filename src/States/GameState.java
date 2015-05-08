@@ -21,7 +21,8 @@ public class GameState extends BasicGameState {
 	private ArrayList <Entity> entities;
 	public float a;
 	public float b = -550;
-	int points;
+	public static int points =5000;
+	int lives = 5;
 	
 	@Override
 	public void init(GameContainer gc, StateBasedGame s) throws SlickException {
@@ -48,9 +49,11 @@ public class GameState extends BasicGameState {
 		
 			World.render(-a, -b);
 
-			g.drawString("Lives : ", -a+50, -b+50);
+			g.drawString("Lives : " + lives , -a+50, -b+50);
 			g.drawString("Points : " + points,-a+200, -b+50);
 			
+			if (points>0){points--;
+			}
 		
 		
 		int hugeness = entities.size();
@@ -61,12 +64,16 @@ public class GameState extends BasicGameState {
 			if (entities.get(0).y>1367){
 				entities.get(0).y =1044;
 				entities.get(0).x =400;
-				
+				lives--; 
 			
 				
 			}
-		
-		
+		if (lives==0){
+			points =5000;
+			lives = 5;
+				
+		}
+			
 		g.resetTransform();
 	}
 
@@ -98,6 +105,8 @@ public class GameState extends BasicGameState {
 				points += 5;
 			}*/
 			
+				
+				
 			if (b<-550){
 				b=-550;
 				}
